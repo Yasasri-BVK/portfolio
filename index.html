@@ -540,22 +540,102 @@
     </div>
   </section>
 
-  <!-- Achievements -->
+<!-- ACHIEVEMENTS SECTION (WITH INTERACTIVE PHOTO GALLERY) -->
   <section id="achievements">
     <div class="container">
       <div class="section-title">
         <span>Honors &amp; Awards</span>
         <h2>Competition Achievements</h2>
       </div>
+
       <div class="ach-banner">
         <i class="fas fa-trophy" style="font-size:2.8rem; color:var(--accent-gold);"></i>
         <div>
           <h3 style="font-size:1.35rem; font-weight:700; margin-bottom:6px;">Winner — Innovation Category &amp; Most Popular Team | InCo 2026</h3>
-          <p style="color:var(--text-mid); font-size:0.95rem;">Won 1st Place at the 12th Invention Convention (InCo 2026) for <strong>"InhaloSafe"</strong> — a smart UV-C inhaler hygiene assurance system with automatic sterilization and companion mobile app.</p>
+          <p style="color:var(--text-mid); font-size:0.95rem; line-height:1.6;">
+            Won 1st Place at the 12th Invention Convention (InCo 2026) for <strong>"InhaloSafe"</strong> — a smart UV-C inhaler hygiene assurance system featuring automated sterilization, lid interlock safety sensors, and a companion mobile app. Developed under <strong>Team CATALYST</strong>.
+          </p>
         </div>
       </div>
+
+      <!-- InCo Event Photo Gallery Grid -->
+      <div class="inco-gallery-grid">
+        <div class="inco-photo-card" onclick="openPhotoPreview('inco-banner.jpeg')">
+          <img src="inco-banner.jpeg" alt="InhaloSafe Product Booth - InCo 2026">
+          <div class="inco-photo-overlay">
+            <span><i class="fas fa-expand"></i> InhaloSafe Showcase</span>
+          </div>
+        </div>
+
+        <div class="inco-photo-card" onclick="openPhotoPreview('inco-award.jpeg')">
+          <img src="inco-award.jpeg" alt="InCo 2026 Award Ceremony">
+          <div class="inco-photo-overlay">
+            <span><i class="fas fa-expand"></i> Awarding Moment</span>
+          </div>
+        </div>
+
+        <div class="inco-photo-card" onclick="openPhotoPreview('inco-certs.jpeg')">
+          <img src="inco-certs.jpeg" alt="Team CATALYST with Certificates">
+          <div class="inco-photo-overlay">
+            <span><i class="fas fa-expand"></i> Team CATALYST</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
+
+  <style>
+    .inco-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .inco-photo-card {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      height: 220px;
+      cursor: pointer;
+      background: #000;
+      transition: all 0.3s ease;
+    }
+    .inco-photo-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 242, 254, 0.4);
+      box-shadow: 0 12px 28px rgba(0, 242, 254, 0.15);
+    }
+    .inco-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+    .inco-photo-card:hover img {
+      transform: scale(1.06);
+    }
+    .inco-photo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(7, 9, 14, 0.9));
+      padding: 16px 14px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .inco-photo-overlay span {
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-cyan);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+  </style>
 
   <!-- CERTIFICATIONS SECTION (CLEAN FILE NAMES) -->
   <section id="certifications">
@@ -920,6 +1000,29 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeProModal();
     });
+   function openPhotoPreview(src) {
+      const modal = document.getElementById('proModal');
+      document.getElementById('mTitle').textContent = "InCo 2026 — Event Highlight";
+      document.getElementById('mIssuer').textContent = "University of Kelaniya";
+      document.getElementById('mDate').textContent = "2026";
+      document.getElementById('mCategory').innerHTML = `<i class="fas fa-trophy"></i> COMPETITION WIN`;
+      document.getElementById('mDesc').textContent = "Highlights from the 12th Invention Convention (InCo 2026) where Team CATALYST won 1st Place in Innovation and Most Popular Team for InhaloSafe.";
+      
+      const imgEl = document.getElementById('mImg');
+      imgEl.src = src;
+      document.getElementById('mImgLink').href = src;
+
+      const skillsContainer = document.getElementById('mSkills');
+      skillsContainer.innerHTML = `
+        <span class="m-pill">Innovation</span>
+        <span class="m-pill">Team CATALYST</span>
+        <span class="m-pill">InhaloSafe</span>
+        <span class="m-pill">1st Place</span>
+      `;
+
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    } 
   </script>
 </body>
 </html>
