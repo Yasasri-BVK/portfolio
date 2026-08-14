@@ -1285,6 +1285,195 @@
     }
   </style>
 
+  <!-- EDUCATION & LEADERSHIP TIMELINE SECTION -->
+  <section id="experience" style="padding: 70px 0;">
+    <div class="container">
+      <div class="section-title">
+        <span>My Background</span>
+        <h2>Education &amp; Experience</h2>
+      </div>
+
+      <div class="timeline-two-col">
+        
+        <!-- Column 1: Education -->
+        <div class="timeline-column">
+          <div class="timeline-col-header">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Education</h3>
+          </div>
+
+          <div class="timeline-track">
+            
+            <!-- Degree -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-year">2024 — Present</span>
+                <h4>B.Sc. (Hons) in Management and Information Technology (MIT)</h4>
+                <p class="timeline-inst">University of Kelaniya, Sri Lanka</p>
+                <p class="timeline-desc">Specializing in Information Technology, Software Engineering, Database Management, and Data Analytics.</p>
+              </div>
+            </div>
+
+            <!-- Diploma -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-year">2023 — 2024</span>
+                <h4>Diploma in Advanced English for Administration &amp; Academic Purposes</h4>
+                <p class="timeline-inst">University of Colombo</p>
+                <p class="timeline-desc">Focused on professional business communication, technical writing, and administrative documentation.</p>
+              </div>
+            </div>
+
+            <!-- School -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-year">2013 — 2022</span>
+                <h4>G.C.E. Advanced Level &amp; Ordinary Level</h4>
+                <p class="timeline-inst">High School Education</p>
+                <p class="timeline-desc">Successfully completed secondary education with strong foundational competencies in Physical Sciences / ICT stream.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Column 2: Leadership & Volunteering -->
+        <div class="timeline-column">
+          <div class="timeline-col-header">
+            <i class="fas fa-hands-helping"></i>
+            <h3>Leadership &amp; Activities</h3>
+          </div>
+
+          <div class="timeline-track">
+            
+            <!-- LEO Club -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-year">2024 — Present</span>
+                <h4>Active Member &amp; Project Coordinator</h4>
+                <p class="timeline-inst">LEO Club of University of Kelaniya</p>
+                <p class="timeline-desc">Organizing community outreach initiatives, team building programs, and leadership development workshops.</p>
+              </div>
+            </div>
+
+            <!-- LED Club / University Societies -->
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <span class="timeline-year">2024 — Present</span>
+                <h4>Member — LED &amp; MIT Student Community</h4>
+                <p class="timeline-inst">Department of Industrial Management, UoK</p>
+                <p class="timeline-desc">Collaborating on university tech symposiums, industry engagement activities, and student project showcases.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .timeline-two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 25px;
+    }
+    @media (max-width: 850px) {
+      .timeline-two-col {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+    .timeline-col-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .timeline-col-header i {
+      font-size: 1.3rem;
+      color: var(--accent-cyan);
+    }
+    .timeline-col-header h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .timeline-track {
+      position: relative;
+      padding-left: 24px;
+      border-left: 2px solid rgba(0, 242, 254, 0.2);
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 28px;
+    }
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -31px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+      box-shadow: 0 0 10px var(--glow-cyan);
+    }
+    .timeline-content {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .timeline-content:hover {
+      border-color: rgba(0, 242, 254, 0.4);
+      transform: translateX(4px);
+    }
+    .timeline-year {
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--accent-cyan);
+      background: rgba(0, 242, 254, 0.08);
+      border: 1px solid rgba(0, 242, 254, 0.25);
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+    .timeline-content h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+      line-height: 1.4;
+    }
+    .timeline-inst {
+      font-size: 0.84rem;
+      color: var(--text-mid);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .timeline-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0;
+    }
+  </style>
+
   <!-- Contact -->
   <section id="contact">
     <div class="container">
