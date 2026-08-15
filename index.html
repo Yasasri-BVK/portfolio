@@ -152,10 +152,21 @@
     justify-content: center;
   }
 
+  /* Floating Orbit Pill - Fully Outside Fix */
+  .cinematic-portrait-wrapper {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible !important;        
+  }
+
   .orbit-tag {
     position: absolute;
-    top: -15px;                          /* Circle එකටත් උඩින් පිටතින් තැබීම */
-    right: -25px;                        /* දකුණු පැත්තට තල්ලු කිරීම */
+    top: -25px;                          
+    right: -80px;                        
     background: rgba(13, 17, 26, 0.95);
     border: 1px solid rgba(0, 242, 254, 0.6);
     padding: 8px 18px;
@@ -164,8 +175,8 @@
     font-family: 'JetBrains Mono', monospace;
     color: var(--accent-cyan);
     backdrop-filter: blur(16px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 242, 254, 0.2);
-    z-index: 20;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 242, 254, 0.25);
+    z-index: 50;
     white-space: nowrap;
     animation: floatTag 3.5s ease-in-out infinite alternate;
   }
@@ -175,11 +186,18 @@
     100% { transform: translateY(-8px); }
   }
 
+  @media (max-width: 1100px) {
+    .orbit-tag {
+      right: -30px;
+    }
+  }
+
   @media (max-width: 968px) {
     .orbit-tag {
-      top: -20px;
-      right: 50%;
-      transform: translateX(50%);
+      position: static;
+      display: inline-block;
+      margin-bottom: 20px;
+      transform: none;
     }
   }
 .hero-avatar {
