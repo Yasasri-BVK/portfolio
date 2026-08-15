@@ -438,6 +438,67 @@
       .hero-grid { grid-template-columns: 1fr; }
       .modal-grid-layout { grid-template-columns: 1fr; }
     }
+/* Fix Profile Photo Squeezing across all screen sizes */
+  .hero-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  .hero-right-visual {
+    flex: 0 0 300px !important;
+    min-width: 300px !important;
+    max-width: 320px !important;
+    margin: 2rem auto 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .cinematic-portrait-wrapper {
+    position: relative !important;
+    width: 290px !important;
+    min-width: 290px !important;
+  }
+
+  .portrait-glow-ring {
+    width: 270px !important;
+    min-width: 270px !important;
+    height: 380px !important;
+    border-radius: 135px 135px 24px 24px !important;
+    overflow: hidden !important;
+  }
+
+  .portrait-main-img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    display: block !important;
+  }
+
+  @media (max-width: 768px) {
+    .hero-container {
+      flex-direction: column !important;
+      text-align: center !important;
+    }
+    .hero-right-visual {
+      flex: 0 0 240px !important;
+      min-width: 240px !important;
+      margin-top: 2rem !important;
+    }
+    .cinematic-portrait-wrapper {
+      width: 240px !important;
+      min-width: 240px !important;
+    }
+    .portrait-glow-ring {
+      width: 230px !important;
+      min-width: 230px !important;
+      height: 330px !important;
+      border-radius: 115px 115px 20px 20px !important;
+    }
+  }
+    
   </style>
 </head>
 <body>
