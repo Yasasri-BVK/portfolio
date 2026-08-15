@@ -2902,5 +2902,99 @@
     }
     
   </script>
+
+  <script>
+  // Badge database with modal details
+  const badgeData = {
+    'cisco-ds': {
+      category: 'DATA SCIENCE',
+      title: 'Introduction to Data Science',
+      issuer: 'Cisco Networking Academy',
+      date: 'Apr 10, 2026',
+      img: 'badge-cisco-ds.png',
+      desc: 'Demonstrated fundamental proficiency in data analysis concepts, AI/ML foundations, data ethics, and programming workflows for analytical problem-solving.',
+      skills: ['Data Analysis', 'Python Foundations', 'Machine Learning Basics', 'Data Ethics'],
+      verifyUrl: 'https://www.credly.com/'
+    },
+    'kaggle-python': {
+      category: 'PROGRAMMING',
+      title: 'Python Coder Specialist',
+      issuer: 'Kaggle',
+      date: 'Jul 21, 2026',
+      img: 'badge-kaggle-python-coder.png',
+      desc: 'Validated core Python capabilities including syntax, data structures, functions, control flows, and working with external analytics libraries.',
+      skills: ['Python 3', 'Data Structures', 'Algorithmic Thinking', 'OOP'],
+      verifyUrl: 'https://www.kaggle.com/'
+    },
+    'kaggle-community': {
+      category: 'COMMUNITY & COLLABORATION',
+      title: 'Kaggle Community Member',
+      issuer: 'Kaggle',
+      date: 'Feb 15, 2026',
+      img: 'badge-kaggle-community-member.png',
+      desc: 'Active engagement within the global Kaggle data community, participating in discussions, code sharing, and collaborative benchmarks.',
+      skills: ['Data Community', 'Peer Collaboration', 'Code Sharing'],
+      verifyUrl: 'https://www.kaggle.com/'
+    },
+    'kaggle-learner': {
+      category: 'CONTINUOUS LEARNING',
+      title: 'Learner Track Completion',
+      issuer: 'Kaggle',
+      date: 'Jul 23, 2026',
+      img: 'badge-kaggle-learner.png',
+      desc: 'Completed targeted learning pathways focused on hands-on practical exercises in exploratory data analysis and model building.',
+      skills: ['Data Cleaning', 'Feature Engineering', 'Model Evaluation'],
+      verifyUrl: 'https://www.kaggle.com/'
+    },
+    'kaggle-streak': {
+      category: 'COMMITMENT',
+      title: '7 Day Login Streak',
+      issuer: 'Kaggle',
+      date: 'Jul 26, 2026',
+      img: 'badge-kaggle-7day-streak.png',
+      desc: 'Recognized for consistent daily problem-solving, micro-course advancements, and active code execution over consecutive 7-day milestones.',
+      skills: ['Consistency', 'Continuous Practice', 'Problem Solving'],
+      verifyUrl: 'https://www.kaggle.com/'
+    }
+  };
+
+  function openBadgeModal(badgeKey) {
+    const data = badgeData[badgeKey];
+    if (!data) return;
+
+    document.getElementById('bmImg').src = data.img;
+    document.getElementById('bmCategory').innerText = data.category;
+    document.getElementById('bmTitle').innerText = data.title;
+    document.getElementById('bmIssuer').innerText = data.issuer;
+    document.getElementById('bmDate').innerText = data.date;
+    document.getElementById('bmDesc').innerText = data.desc;
+    document.getElementById('bmVerifyLink').href = data.verifyUrl;
+
+    const skillsContainer = document.getElementById('bmSkills');
+    skillsContainer.innerHTML = '';
+    data.skills.forEach(skill => {
+      const span = document.createElement('span');
+      span.className = 'bm-skill-pill';
+      span.innerText = skill;
+      skillsContainer.appendChild(span);
+    });
+
+    const modal = document.getElementById('badgeModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBadgeModal() {
+    const modal = document.getElementById('badgeModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeBadgeModal();
+    }
+  });
+</script>
 </body>
 </html>
