@@ -1523,6 +1523,51 @@
       color: #000;
       box-shadow: 0 0 16px var(--glow-cyan);
     }
+/* Badge Modal Backdrop & Animation */
+.cert-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(5, 8, 18, 0.85);
+  backdrop-filter: blur(8px);
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.cert-modal-backdrop.active {
+  display: flex;
+  opacity: 1;
+}
+
+.cert-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.cert-modal-close:hover {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: #ef4444;
+  color: #ef4444;
+}
+    
   </style>
 
  <!-- EDUCATION & EXPERIENCE TIMELINE SECTION -->
