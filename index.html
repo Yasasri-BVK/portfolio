@@ -141,28 +141,45 @@
 @media (max-width: 480px) { .cinematic-portrait-wrapper { width: 290px; height: 290px; } }
 .portrait-glow-ring { width: 100%; height: 100%; border-radius: 50%; padding: 6px; background: linear-gradient(135deg, rgba(0, 242, 254, 0.8), rgba(144, 102, 254, 0.6), rgba(0, 242, 254, 0.2)); box-shadow: 0 0 50px rgba(0, 242, 254, 0.28), 0 0 100px rgba(121, 40, 202, 0.2); position: relative; overflow: hidden; }
 .portrait-main-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: top center; display: block; background: #0d111a; }
-/* Floating Orbit Pill Position Fix */
+
+    /* Floating Orbit Pill - Exact Outer Positioning */
+  .cinematic-portrait-wrapper {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .orbit-tag {
     position: absolute;
-    top: 15px;
-    right: -45px;                       
-    background: rgba(13, 17, 26, 0.9);
-    border: 1px solid rgba(0, 242, 254, 0.5);
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 0.78rem;
+    top: -15px;                          /* Circle එකටත් උඩින් පිටතින් තැබීම */
+    right: -25px;                        /* දකුණු පැත්තට තල්ලු කිරීම */
+    background: rgba(13, 17, 26, 0.95);
+    border: 1px solid rgba(0, 242, 254, 0.6);
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-size: 0.8rem;
     font-family: 'JetBrains Mono', monospace;
     color: var(--accent-cyan);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-    z-index: 10;
+    backdrop-filter: blur(16px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 242, 254, 0.2);
+    z-index: 20;
     white-space: nowrap;
+    animation: floatTag 3.5s ease-in-out infinite alternate;
   }
+
+  @keyframes floatTag {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-8px); }
+  }
+
   @media (max-width: 968px) {
     .orbit-tag {
-      position: static;
-      display: inline-block;
-      margin-bottom: 15px;
+      top: -20px;
+      right: 50%;
+      transform: translateX(50%);
     }
   }
 .hero-avatar {
