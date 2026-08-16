@@ -516,25 +516,25 @@
       </a>
 
       <!-- Mobile Hamburger Button -->
-      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" onclick="toggleMobileNav()">
         <i class="fas fa-bars"></i>
       </button>
 
       <!-- Nav Links Container -->
       <div class="nav-content-wrap" id="navContentWrap">
         <ul class="nav-links-list">
-          <li><a href="#about" class="nav-item-link active">Home</a></li>
-          <li><a href="#skills" class="nav-item-link">Skills</a></li>
-          <li><a href="#projects" class="nav-item-link">Projects</a></li>
-          <li><a href="#certifications" class="nav-item-link">Certificates</a></li>
-          <li><a href="#badges" class="nav-item-link">Badges</a></li>
-          <li><a href="#experience" class="nav-item-link">Experience</a></li>
-          <li><a href="#contact" class="nav-item-link">Contact</a></li>
+          <li><a href="#about" class="nav-item-link active" data-target="about">Home</a></li>
+          <li><a href="#skills" class="nav-item-link" data-target="skills">Skills</a></li>
+          <li><a href="#projects" class="nav-item-link" data-target="projects">Projects</a></li>
+          <li><a href="#certifications" class="nav-item-link" data-target="certifications">Certificates</a></li>
+          <li><a href="#badges" class="nav-item-link" data-target="badges">Badges</a></li>
+          <li><a href="#experience" class="nav-item-link" data-target="experience">Experience</a></li>
+          <li><a href="#contact" class="nav-item-link" data-target="contact">Contact</a></li>
         </ul>
 
         <div class="nav-actions">
           <a href="Yasasri_Malshani_CV.pdf" download="Yasasri_Malshani_CV.pdf" class="nav-cv-btn">Download CV</a>
-          <button class="nav-theme-btn" id="themeToggleBtn" aria-label="Toggle Theme">
+          <button class="nav-theme-btn" id="themeToggleBtn" type="button" onclick="toggleAppTheme()" aria-label="Toggle Light/Dark Theme">
             <i class="fas fa-sun" id="themeIcon"></i>
           </button>
         </div>
@@ -1467,6 +1467,70 @@ body.light-theme .contact-form-box {
     padding-top: 20px !important;
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
+}
+    /* --- COMPREHENSIVE LIGHT THEME ENGINE --- */
+body.light-theme {
+  background-color: #f1f5f9 !important;
+  background-image: none !important;
+  color: #0f172a !important;
+}
+
+body.light-theme .custom-navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .nav-brand,
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5 {
+  color: #0f172a !important;
+}
+
+body.light-theme .nav-item-link {
+  color: #475569 !important;
+}
+
+body.light-theme .nav-item-link:hover,
+body.light-theme .nav-item-link.active {
+  color: #0284c7 !important;
+}
+
+body.light-theme .nav-item-link.active::after {
+  background: #0284c7 !important;
+  box-shadow: 0 0 8px #0284c7 !important;
+}
+
+body.light-theme p,
+body.light-theme span,
+body.light-theme li,
+body.light-theme .proj-desc {
+  color: #334155 !important;
+}
+
+body.light-theme .nav-theme-btn {
+  background: rgba(0, 0, 0, 0.06) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  color: #0284c7 !important;
+}
+
+body.light-theme section,
+body.light-theme .hero,
+body.light-theme .container {
+  background-color: transparent !important;
+}
+
+body.light-theme .proj-card-visual,
+body.light-theme .badge-card-item,
+body.light-theme .cert-card-box,
+body.light-theme .contact-card-link,
+body.light-theme .contact-form-box,
+body.light-theme .project-modal-box {
+  background: #ffffff !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06) !important;
 }
   </style>
 
