@@ -508,34 +508,38 @@
   <div class="glow-sphere glow-2"></div>
   <div class="glow-sphere glow-3"></div>
 
-<!-- Header & Navigation -->
-  <header class="header" id="mainHeader">
-    <div class="nav-container">
-      <a href="#" class="logo">YM.DEV <span class="logo-accent">//</span></a>
-      
-      <!-- Mobile Hamburger Toggle Button -->
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+<!-- Navigation Bar -->
+  <header class="custom-navbar" id="customNavbar">
+    <div class="nav-inner-container">
+      <a href="#" class="nav-brand">
+        <span class="brand-dot"></span> Yasasri Malshani
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
 
-      <!-- Navigation Menu -->
-      <nav class="nav-menu" id="navMenu">
-        <ul class="nav-links">
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#certifications" class="nav-link">Certificates</a></li>
-          <li><a href="#badges" class="nav-link">Badges</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+      <!-- Nav Links Container -->
+      <div class="nav-content-wrap" id="navContentWrap">
+        <ul class="nav-links-list">
+          <li><a href="#about" class="nav-item-link active">Home</a></li>
+          <li><a href="#about" class="nav-item-link">About</a></li>
+          <li><a href="#skills" class="nav-item-link">Skills</a></li>
+          <li><a href="#projects" class="nav-item-link">Projects</a></li>
+          <li><a href="#certifications" class="nav-item-link">Certificates</a></li>
+          <li><a href="#badges" class="nav-item-link">Badges</a></li>
+          <li><a href="#experience" class="nav-item-link">Experience</a></li>
+          <li><a href="#contact" class="nav-item-link">Contact</a></li>
         </ul>
 
-        <!-- Dark / Light Mode Switcher Button -->
-        <button class="theme-toggle-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme">
-          <i class="fas fa-sun light-icon"></i>
-          <i class="fas fa-moon dark-icon"></i>
-        </button>
-      </nav>
+        <div class="nav-actions">
+          <a href="resume.pdf" download class="nav-cv-btn">Download CV</a>
+          <button class="nav-theme-btn" id="themeToggleBtn" aria-label="Toggle Light/Dark Theme">
+            <i class="fas fa-sun" id="themeIcon"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 
