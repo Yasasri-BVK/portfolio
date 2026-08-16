@@ -3231,5 +3231,73 @@ const modal = document.getElementById('badgeModal');
       }
     });
 </script>
+  <script>
+  // 1. Mobile Drawer Toggle
+  const mobileToggle = document.getElementById('mobileNavToggle');
+  const navContent = document.getElementById('navContentWrap');
+
+  if (mobileToggle && navContent) {
+    mobileToggle.addEventListener('click', () => {
+      navContent.classList.toggle('open');
+      const icon = mobileToggle.querySelector('i');
+      if (icon) {
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+      }
+    });
+
+    document.querySelectorAll('.nav-item-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navContent.classList.remove('open');
+        const icon = mobileToggle.querySelector('i');
+        if (icon) {
+          icon.classList.add('fa-bars');
+          icon.classList.remove('fa-times');
+        }
+      });
+    });
+  }
+
+  // 2. Active Section Highlighting on Scroll
+  const trackedSections = document.querySelectorAll('section[id]');
+  const trackedLinks = document.querySelectorAll('.nav-item-link');
+
+  window.addEventListener('scroll', () => {
+    let activeId = '';
+    const scrollPos = window.pageYOffset + 140;
+
+    trackedSections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        activeId = section.getAttribute('id');
+      }
+    });
+
+    trackedLinks.forEach(link => {
+      link.classList.remove('active');
+      if (activeId && link.getAttribute('href') === `#${activeId}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // 3. Dark / Light Mode Switcher
+  const themeBtn = document.getElementById('themeToggleBtn');
+  const themeIcon = document.getElementById('themeIcon');
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      if (document.body.classList.contains('light-theme')) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      } else {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+    });
+  }
+</script>
 </body>
 </html>
