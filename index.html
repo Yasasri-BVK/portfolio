@@ -3187,7 +3187,7 @@ body.light-theme .project-modal-box {
     }
   </style>
 
-  <script>
+ <script>
     const certData = [
       {
         title: "Python",
@@ -3292,6 +3292,7 @@ body.light-theme .project-modal-box {
 
     function openProModal(index) {
       const item = certData[index];
+      if (!item) return;
       document.getElementById('mTitle').textContent = item.title;
       document.getElementById('mIssuer').textContent = item.org;
       document.getElementById('mDate').textContent = item.year;
@@ -3316,14 +3317,12 @@ body.light-theme .project-modal-box {
     }
 
     function closeProModal() {
-      document.getElementById('proModal').classList.remove('show');
+      const modal = document.getElementById('proModal');
+      if (modal) modal.classList.remove('show');
       document.body.style.overflow = 'auto';
     }
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeProModal();
-    });
-   function openPhotoPreview(src) {
+    function openPhotoPreview(src) {
       const modal = document.getElementById('proModal');
       document.getElementById('mTitle').textContent = "InCo 2026 — Event Highlight";
       document.getElementById('mIssuer').textContent = "University of Kelaniya";
@@ -3345,341 +3344,86 @@ body.light-theme .project-modal-box {
 
       modal.classList.add('show');
       document.body.style.overflow = 'hidden';
-    } 
-    function openVideoModal(videoSrc, title) {
-      const modal = document.getElementById('videoModal');
-      const player = document.getElementById('demoVideoPlayer');
-      document.getElementById('videoTitle').textContent = title;
-      player.src = videoSrc;
-      modal.classList.add('show');
-      document.body.style.overflow = 'hidden';
-      player.play();
     }
 
-    function closeVideoModal() {
-      const modal = document.getElementById('videoModal');
-      const player = document.getElementById('demoVideoPlayer');
-      player.pause();
-      modal.classList.remove('show');
-      document.body.style.overflow = 'auto';
-    }
-
-    const badgeData = {
-      'cisco-ds': {
-        title: "Introduction to Data Science",
-        category: "DATA SCIENCE",
-        issuer: "Cisco Networking Academy",
-        date: "Apr 10, 2026",
-        img: "badge-cisco-ds.png",
-        desc: "Cisco verifies the earner of this badge successfully completed the Introduction to Data Science course. The holder has a broad understanding in basic concepts of Data Analytics, Data Engineering, and AI/ML workflows.",
-        skills: ["Data Analysis", "Data Collection", "Data Validation", "AI/ML Workflows"],
-        link: "https://www.credly.com/badges/fcb47945-f4d5-4b7a-a021-267b181b7eb6/public_url"
-      },
-      'kaggle-python': {
-        title: "Python Coder Specialist",
-        category: "PROGRAMMING",
-        issuer: "Kaggle",
-        date: "Jul 21, 2026",
-        img: "badge-kaggle-python-coder.png",
-        desc: "Awarded by Kaggle for mastering Python syntax, data structures, loops, functions, external libraries, and hands-on algorithmic problem solving.",
-        skills: ["Python", "Algorithms", "Data Structures", "Logic & Loops"],
-        link: "https://www.kaggle.com/yasasri2003"
-      },
-      'kaggle-community': {
-        title: "Kaggle Community Member",
-        category: "DATA SCIENCE COMMUNITY",
-        issuer: "Kaggle",
-        date: "Feb 15, 2026",
-        img: "badge-kaggle-community-member.png",
-        desc: "Earned for active participation and continuous collaboration within the Kaggle global data science and machine learning community.",
-        skills: ["Community Collaboration", "Jupyter Notebooks", "Peer Discussion"],
-        link: "https://www.kaggle.com/yasasri2003"
-      },
-      'kaggle-learner': {
-        title: "Learner Track",
-        category: "MACHINE LEARNING TRACK",
-        issuer: "Kaggle",
-        date: "Jul 23, 2026",
-        img: "badge-kaggle-learner.png",
-        desc: "Awarded for progressing through Kaggle's curated data science and programming learning tracks with hands-on code exercises.",
-        skills: ["Hands-on Coding", "Course Foundations", "Applied Analytics"],
-        link: "https://www.kaggle.com/yasasri2003"
-      },
-      'kaggle-streak': {
-        title: "7 Day Login Streak",
-        category: "DEVELOPER CONSISTENCY",
-        issuer: "Kaggle",
-        date: "Jul 26, 2026",
-        img: "badge-kaggle-7day-streak.png",
-        desc: "Earned for unbroken consistent daily learning and hands-on practice across 7 consecutive days on the Kaggle platform.",
-        skills: ["Consistency", "Continuous Learning", "Rapid Problem Solving"],
-        link: "https://www.kaggle.com/yasasri2003"
-      }
-    };
-
-    function openBadgeModal(badgeKey) {
-      const b = badgeData[badgeKey];
-      if (!b) return;
-
-      document.getElementById('bmTitle').textContent = b.title;
-      document.getElementById('bmCategory').textContent = b.category;
-      document.getElementById('bmIssuer').textContent = b.issuer;
-      document.getElementById('bmDate').textContent = b.date;
-      document.getElementById('bmDesc').textContent = b.desc;
-      document.getElementById('bmImg').src = b.img;
-      document.getElementById('bmVerifyLink').href = b.link;
-
-      const skillsBox = document.getElementById('bmSkills');
-      skillsBox.innerHTML = '';
-      b.skills.forEach(s => {
-        const span = document.createElement('span');
-        span.className = 'bm-skill-pill';
-        span.textContent = s;
-        skillsBox.appendChild(span);
-      });
-
-      document.getElementById('badgeModal').classList.add('show');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeBadgeModal() {
-      document.getElementById('badgeModal').classList.remove('show');
-      document.body.style.overflow = 'auto';
-    }
-    
-  </script>
-
-  <script>
-  // Badge database with modal details
-  const badgeData = {
-      'cisco-ds': {
-        category: 'DATA SCIENCE',
-        title: 'Introduction to Data Science',
-        issuer: 'Cisco Networking Academy',
-        date: 'Apr 10, 2026',
-        img: 'badge-cisco-ds.png',
-        desc: 'Demonstrated fundamental proficiency in data analysis concepts, AI/ML foundations, data ethics, and programming workflows for analytical problem-solving.',
-        skills: ['Data Analysis', 'Python Foundations', 'Machine Learning Basics', 'Data Ethics'],
-        verifyUrl: 'https://www.credly.com/'
-      },
-      'kaggle-python': {
-        category: 'PROGRAMMING',
-        title: 'Python Coder Specialist',
-        issuer: 'Kaggle',
-        date: 'Jul 21, 2026',
-        img: 'badge-kaggle-python-coder.png',
-        desc: 'Validated core Python capabilities including syntax, data structures, functions, control flows, and working with external analytics libraries.',
-        skills: ['Python 3', 'Data Structures', 'Algorithmic Thinking', 'OOP'],
-        verifyUrl: 'https://www.kaggle.com/'
-      },
-      'kaggle-community': {
-        category: 'COMMUNITY & COLLABORATION',
-        title: 'Kaggle Community Member',
-        issuer: 'Kaggle',
-        date: 'Feb 15, 2026',
-        img: 'badge-kaggle-community-member.png',
-        desc: 'Active engagement within the global Kaggle data community, participating in discussions, code sharing, and collaborative benchmarks.',
-        skills: ['Data Community', 'Peer Collaboration', 'Code Sharing'],
-        verifyUrl: 'https://www.kaggle.com/'
-      },
-      'kaggle-learner': {
-        category: 'CONTINUOUS LEARNING',
-        title: 'Learner Track Completion',
-        issuer: 'Kaggle',
-        date: 'Jul 23, 2026',
-        img: 'badge-kaggle-learner.png',
-        desc: 'Completed targeted learning pathways focused on hands-on practical exercises in exploratory data analysis and model building.',
-        skills: ['Data Cleaning', 'Feature Engineering', 'Model Evaluation'],
-        verifyUrl: 'https://www.kaggle.com/'
-      },
-      'kaggle-streak': {
-        category: 'COMMITMENT',
-        title: '7 Day Login Streak',
-        issuer: 'Kaggle',
-        date: 'Jul 26, 2026',
-        img: 'badge-kaggle-7day-streak.png',
-        desc: 'Recognized for consistent daily problem-solving, micro-course advancements, and active code execution over consecutive 7-day milestones.',
-        skills: ['Consistency', 'Continuous Practice', 'Problem Solving'],
-        verifyUrl: 'https://www.kaggle.com/'
-      }
-    };
-
-    function openBadgeModal(badgeKey) {
-      const data = badgeData[badgeKey];
-      if (!data) return;
-
-      document.getElementById('bmImg').src = data.img;
-      document.getElementById('bmCategory').innerText = data.category;
-      document.getElementById('bmTitle').innerText = data.title;
-      document.getElementById('bmIssuer').innerText = data.issuer;
-      document.getElementById('bmDate').innerText = data.date;
-      document.getElementById('bmDesc').innerText = data.desc;
-      document.getElementById('bmVerifyLink').href = data.verifyUrl;
-
-      const skillsContainer = document.getElementById('bmSkills');
-      skillsContainer.innerHTML = '';
-      data.skills.forEach(skill => {
-        const span = document.createElement('span');
-        span.className = 'bm-skill-pill';
-        span.innerText = skill;
-        skillsContainer.appendChild(span);
-      });
-
-const modal = document.getElementById('badgeModal');
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeBadgeModal() {
-    const modal = document.getElementById('badgeModal');
-    modal.classList.remove('active');
-    document.body.style.overflow = 'auto';
-  }
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') {
-        closeBadgeModal();
-      }
-    });
-</script>
-  <script>
-  // 1. Mobile Drawer Toggle
-  const mobileToggle = document.getElementById('mobileNavToggle');
-  const navContent = document.getElementById('navContentWrap');
-
-  if (mobileToggle && navContent) {
-    mobileToggle.addEventListener('click', () => {
-      navContent.classList.toggle('open');
-      const icon = mobileToggle.querySelector('i');
-      if (icon) {
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
-      }
-    });
-
-    document.querySelectorAll('.nav-item-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navContent.classList.remove('open');
-        const icon = mobileToggle.querySelector('i');
-        if (icon) {
-          icon.classList.add('fa-bars');
-          icon.classList.remove('fa-times');
-        }
-      });
-    });
-  }
-
-  // 2. Active Section Highlighting on Scroll
-  const trackedSections = document.querySelectorAll('section[id]');
-  const trackedLinks = document.querySelectorAll('.nav-item-link');
-
-  window.addEventListener('scroll', () => {
-    let activeId = '';
-    const scrollPos = window.pageYOffset + 140;
-
-    trackedSections.forEach(section => {
-      const top = section.offsetTop;
-      const height = section.offsetHeight;
-      if (scrollPos >= top && scrollPos < top + height) {
-        activeId = section.getAttribute('id');
-      }
-    });
-
-    trackedLinks.forEach(link => {
-      link.classList.remove('active');
-      if (activeId && link.getAttribute('href') === `#${activeId}`) {
-        link.classList.add('active');
-      }
-    });
-  });
-
-  // 3. Dark / Light Mode Switcher
-  const themeBtn = document.getElementById('themeToggleBtn');
-  const themeIcon = document.getElementById('themeIcon');
-
-  if (themeBtn) {
-    themeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light-theme');
-      if (document.body.classList.contains('light-theme')) {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-      } else {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-      }
-    });
-  }
     // 1. Mobile Menu Toggle
-  const mobileToggle = document.getElementById('mobileNavToggle');
-  const navContent = document.getElementById('navContentWrap');
-
-  if (mobileToggle && navContent) {
-    mobileToggle.addEventListener('click', () => {
-      navContent.classList.toggle('open');
-      const icon = mobileToggle.querySelector('i');
-      if (icon) {
-        icon.classList.toggle('fa-bars');
-        icon.classList.toggle('fa-times');
+    function toggleMobileNav() {
+      const navContent = document.getElementById('navContentWrap');
+      const mobileToggle = document.getElementById('mobileNavToggle');
+      if (navContent) {
+        navContent.classList.toggle('open');
+        const icon = mobileToggle ? mobileToggle.querySelector('i') : null;
+        if (icon) {
+          icon.classList.toggle('fa-bars');
+          icon.classList.toggle('fa-times');
+        }
       }
-    });
+    }
 
+    // Close Mobile Drawer on Link Click
     document.querySelectorAll('.nav-item-link').forEach(link => {
       link.addEventListener('click', () => {
-        navContent.classList.remove('open');
-        const icon = mobileToggle.querySelector('i');
-        if (icon) {
-          icon.classList.add('fa-bars');
-          icon.classList.remove('fa-times');
+        const navContent = document.getElementById('navContentWrap');
+        const mobileToggle = document.getElementById('mobileNavToggle');
+        if (navContent) navContent.classList.remove('open');
+        if (mobileToggle) {
+          const icon = mobileToggle.querySelector('i');
+          if (icon) {
+            icon.classList.add('fa-bars');
+            icon.classList.remove('fa-times');
+          }
         }
       });
     });
-  }
 
-  // 2. Real-time Scroll Spy (Active Underline Indicator)
-  const navLinks = document.querySelectorAll('.nav-item-link');
-  const sectionIds = ['about', 'skills', 'projects', 'certifications', 'badges', 'experience', 'contact'];
-
-  window.addEventListener('scroll', () => {
-    let currentId = '';
-    const scrollPos = window.pageYOffset + 200;
-
-    sectionIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (el) {
-        const top = el.offsetTop;
-        const height = el.offsetHeight;
-        if (scrollPos >= top && scrollPos < top + height) {
-          currentId = id;
-        }
-      }
-    });
-
-    if (currentId) {
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentId}`) {
-          link.classList.add('active');
-        }
-      });
-    }
-  });
-
-  // 3. Dark / Light Mode Switcher Engine
-  const themeBtn = document.getElementById('themeToggleBtn');
-  const themeIcon = document.getElementById('themeIcon');
-
-  if (themeBtn && themeIcon) {
-    themeBtn.addEventListener('click', () => {
+    // 2. Light / Dark Theme Switcher
+    function toggleAppTheme() {
       document.body.classList.toggle('light-theme');
-      if (document.body.classList.contains('light-theme')) {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-      } else {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
+      const themeIcon = document.getElementById('themeIcon');
+      if (themeIcon) {
+        if (document.body.classList.contains('light-theme')) {
+          themeIcon.className = 'fas fa-moon';
+        } else {
+          themeIcon.className = 'fas fa-sun';
+        }
+      }
+    }
+
+    // 3. Real-time Scroll Spy (Active Underline Indicator)
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.pageYOffset + 250;
+      const sections = ['about', 'skills', 'projects', 'certifications', 'badges', 'experience', 'contact'];
+      let activeSectionId = '';
+
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPos >= top && scrollPos < top + height) {
+            activeSectionId = id;
+          }
+        }
+      });
+
+      if (activeSectionId) {
+        document.querySelectorAll('.nav-item-link').forEach(link => {
+          link.classList.remove('active');
+          const href = link.getAttribute('href');
+          if (href === `#${activeSectionId}` || link.getAttribute('data-target') === activeSectionId) {
+            link.classList.add('active');
+          }
+        });
       }
     });
-  }
-</script>
+
+    // 4. Keyboard ESC Listener
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeProModal();
+        if (typeof closeProjectModal === 'function') closeProjectModal();
+      }
+    });
+  </script>
 </body>
 </html>
