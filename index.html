@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <style>
-    :root {
+:root {
       --bg-dark: #07090e;
       --card-bg: rgba(16, 22, 34, 0.75);
       --card-border: rgba(255, 255, 255, 0.08);
@@ -32,6 +32,49 @@
       
       --glow-cyan: rgba(0, 242, 254, 0.18);
       --glow-purple: rgba(121, 40, 202, 0.22);
+    }
+
+    /* Universal Variable Switch for Light Mode */
+    body.light-theme {
+      --bg-dark: #f8fafc !important;
+      --card-bg: #ffffff !important;
+      --card-border: rgba(0, 0, 0, 0.08) !important;
+      --card-hover: #f1f5f9 !important;
+      --text-hi: #0f172a !important;
+      --text-mid: #475569 !important;
+      --text-muted: #64748b !important;
+      --accent-cyan: #0284c7 !important;
+      --accent-blue: #0369a1 !important;
+    }
+
+    body.light-theme .skill-box,
+    body.light-theme .cert-card-pro,
+    body.light-theme .timeline-content,
+    body.light-theme .reach-card,
+    body.light-theme .minimal-inbox-section,
+    body.light-theme .hero-stats-bar {
+      background: #ffffff !important;
+      color: #0f172a !important;
+    }
+
+    body.light-theme .skill-box h3,
+    body.light-theme .h-stat-item h4,
+    body.light-theme .cert-meta h3,
+    body.light-theme .timeline-content h4,
+    body.light-theme .reach-info h4 {
+      color: #0f172a !important;
+    }
+
+    body.light-theme .tech-tag {
+      background: #f1f5f9 !important;
+      border: 1px solid #cbd5e1 !important;
+      color: #0284c7 !important;
+    }
+
+    body.light-theme .btn-dark-glass {
+      background: #ffffff !important;
+      border: 1px solid rgba(0, 0, 0, 0.12) !important;
+      color: #0f172a !important;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
