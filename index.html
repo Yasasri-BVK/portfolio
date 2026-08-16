@@ -1382,18 +1382,23 @@
     }
 
     /* Modal Backdrop */
-    .cert-modal-backdrop {
-      position: fixed !important;
-      top: 0 !important;
-      left: 0 !important;
-      width: 100vw !important;
-      height: 100vh !important;
-      background: rgba(5, 8, 18, 0.88) !important;
-      backdrop-filter: blur(10px) !important;
-      justify-content: center !important;
-      align-items: center !important;
-      z-index: 999999 !important;
-    }
+.cert-modal-backdrop {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(5, 8, 18, 0.88) !important;
+  backdrop-filter: blur(10px) !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 999999 !important;
+  display: none;
+}
+
+.cert-modal-backdrop.active {
+  display: flex !important;
+}
     .badge-modal-box {
       background: #0d111a;
       border: 1px solid rgba(0, 242, 254, 0.3);
@@ -2965,16 +2970,16 @@
         skillsContainer.appendChild(span);
       });
 
-      const modal = document.getElementById('badgeModal');
-      modal.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
+const modal = document.getElementById('badgeModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 
-    function closeBadgeModal() {
-      const modal = document.getElementById('badgeModal');
-      modal.style.display = 'none';
-      document.body.style.overflow = 'auto';
-    }
+  function closeBadgeModal() {
+    const modal = document.getElementById('badgeModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
 
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
