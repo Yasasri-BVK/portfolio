@@ -1002,7 +1002,226 @@
     }
     .pm-btn-secondary:hover {
       background: rgba(255, 255, 255, 0.15);
-    }
+    } 
+
+    /* --- CLEAN MODERN NAVBAR STYLES --- */
+:root {
+  --nav-bg: rgba(9, 12, 22, 0.85);
+  --nav-border: rgba(255, 255, 255, 0.08);
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+  --accent-cyan: #00e5ff;
+  --body-bg: #090c16;
+}
+
+/* Light Theme Variables */
+body.light-theme {
+  --body-bg: #f8fafc;
+  --nav-bg: rgba(255, 255, 255, 0.9);
+  --nav-border: rgba(0, 0, 0, 0.08);
+  --text-main: #0f172a;
+  --text-dim: #64748b;
+  --accent-cyan: #0284c7;
+}
+
+body.light-theme {
+  background-color: var(--body-bg) !important;
+  color: var(--text-main) !important;
+}
+
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--nav-border);
+  transition: all 0.3s ease;
+}
+
+.nav-inner-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.3px;
+}
+
+.brand-dot {
+  width: 9px;
+  height: 9px;
+  background: var(--accent-cyan);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.nav-content-wrap {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-links-list {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-item-link:hover {
+  color: var(--text-main);
+}
+
+/* Active Section Highlight Effect */
+.nav-item-link.active {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.nav-item-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-cyan);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 18px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  background: transparent;
+  border: 1px solid var(--accent-cyan);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.nav-cv-btn:hover {
+  background: var(--accent-cyan);
+  color: #000;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.4);
+}
+
+.nav-theme-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--nav-border);
+  color: #f59e0b;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.25s ease;
+}
+
+.nav-theme-btn:hover {
+  transform: scale(1.08);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-main);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* Adjust page body padding to prevent content from hiding under fixed navbar */
+body {
+  padding-top: 72px;
+}
+
+/* Responsive Mobile Styles */
+@media (max-width: 992px) {
+  .mobile-nav-toggle {
+    display: block;
+  }
+
+  .nav-content-wrap {
+    position: fixed;
+    top: 72px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 72px);
+    background: var(--nav-bg);
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 24px;
+    gap: 24px;
+    transition: left 0.3s ease;
+    border-top: 1px solid var(--nav-border);
+  }
+
+  .nav-content-wrap.open {
+    left: 0;
+  }
+
+  .nav-links-list {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 16px;
+  }
+
+  .nav-item-link {
+    font-size: 1.05rem;
+  }
+
+  .nav-actions {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 20px;
+    border-top: 1px solid var(--nav-border);
+  }
+}
   </style>
 
   <script>
